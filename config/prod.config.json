@@ -1,0 +1,4 @@
+{
+  "environment": "prod",
+  "baseUrl": "https://prod.example.com"
+}

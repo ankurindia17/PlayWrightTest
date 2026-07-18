@@ -1,0 +1,39 @@
+{
+  "name": "playwrighttest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "cross-env": "^10.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "@types/xlsx": "^0.0.35",
+    "csv-parse": "^7.0.1",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "test": "npx playwright test",
+
+    "test:report": "cross-env Env=qa PW_WORKERS=3 npx playwright test --headed --project=chromium",
+
+    "test:login:excel": "cross-env ENV=qa npx playwright test tests/ui/specs/login.excel.spec.ts --headed --project=chromium",
+    "test:qa:inventoryadd:all": "cross-env ENV=qa npx playwright test tests/ui/specs/inventory.add-all.spec.ts --headed --workers=1 --project=chromium",
+    "test:qa:inventoryadd:all:parallel": "cross-env ENV=qa PW_WORKERS=4 npx playwright test tests/ui/specs/inventory.add-all.spec.ts --headed --project=chromium",
+    "test:qa:inventoryadd:multipletest": "cross-env ENV=qa npx playwright test tests/ui/specs/inventory.add-all-multipletest.spec.ts --headed --workers=1 --project=chromium",
+    "test:qa:inventoryadd:multipletest:parallel": "cross-env ENV=qa PW_WORKERS=4 npx playwright test tests/ui/specs/inventory.add-all-multipletest.spec.ts --headed --project=chromium",
+    "test:qa:inventoryremove": "cross-env ENV=qa npx playwright test tests/ui/specs/inventory.remove-all.spec.ts --headed --workers=1 --project=chromium",
+    "test:qa:inventoryremove:parallel": "cross-env ENV=qa PW_WORKERS=4 npx playwright test tests/ui/specs/inventory.remove-all.spec.ts --headed --project=chromium",
+    "test:staging": "cross-env ENV=staging npx playwright test",
+    "test:parallel": "cross-env ENV=qa PW_WORKERS=4 npx playwright test tests/ui/specs/inventory.add-all.spec.ts --headed --project=chromium",
+    "test:qa:inventoryadd:removed:parallel": "cross-env ENV=qa PW_WORKERS=4 npx playwright test tests/ui/specs/inventory.remove-all.spec.ts tests/ui/specs/inventory.add-all-multipletest.spec.ts --headed --project=chromium",
+    "report:dashboard": "node ./scripts/generate-dashboard.js"
+  }
+}
+
