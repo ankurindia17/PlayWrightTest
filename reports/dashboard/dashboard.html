@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Automation Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <header class="flex flex-col md:flex-row md:items-center md:justify-between pb-6 mb-8 border-b border-slate-200">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900">Automation Execution Dashboard</h1>
+                <p class="text-slate-500 mt-1">Playwright Test Suite Run Overview</p>
+            </div>
+            <div class="mt-4 md:mt-0 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200 text-sm font-medium text-slate-600">
+                Total Duration: <span class="text-indigo-600 font-bold">120s</span>
+            </div>
+        </header>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <span class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Total Executed</span>
+                    <span class="text-4xl font-extrabold text-slate-900 mt-2">12</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between border-l-4 border-l-emerald-500">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Passed</span>
+                    <span class="text-4xl font-extrabold text-emerald-700 mt-2">11</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between border-l-4 border-l-rose-500">
+                    <span class="text-sm font-semibold text-rose-600 uppercase tracking-wider">Failed</span>
+                    <span class="text-4xl font-extrabold text-rose-700 mt-2">0</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between border-l-4 border-l-amber-500">
+                    <span class="text-sm font-semibold text-amber-600 uppercase tracking-wider">Skipped / Timeout</span>
+                    <span class="text-4xl font-extrabold text-amber-700 mt-2">1</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center justify-center">
+                <div class="w-48 h-48">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 bg-slate-50">
+                <h2 class="font-bold text-slate-900 text-lg">Test Details Breakdown</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100/70 text-slate-600 text-xs font-semibold uppercase border-b border-slate-200">
+                            <th class="px-6 py-3">Status</th>
+                            <th class="px-6 py-3">Test Spec Name</th>
+                            <th class="px-6 py-3">File Location</th>
+                            <th class="px-6 py-3 text-right">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm">
+
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">has title</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">example.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">5.19s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">get started link</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">example.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">5.74s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">inventory add-to-cart</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all-multipletest.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">10.42s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">cart verification</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all-multipletest.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">9.76s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">checkout info</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all-multipletest.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">14.85s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">overview verification</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all-multipletest.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">14.43s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">finish and complete checkout</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all-multipletest.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">16.64s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">should add all inventory products from CSV, verify cart, checkout, and finish</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.add-all.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">16.75s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">should add all inventory products from CSV, verify cart, checkout, and finish</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">inventory.remove-all.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">15.78s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">Login test for - standard_user</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">login.excel.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">4.91s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">SKIPPED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">Login test for - locked_out_user</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">login.excel.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">0.62s</td>
+      </tr>
+    
+      <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">PASSED</span></td>
+          <td class="px-6 py-4">
+              <div class="font-semibold text-slate-900">Login test for - problem_user</div>
+              
+          </td>
+          <td class="px-6 py-4 text-slate-500 font-mono text-xs">login.excel.spec.ts</td>
+          <td class="px-6 py-4 text-right font-medium text-slate-700">5.13s</td>
+      </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Passed', 'Failed', 'Skipped'],
+                datasets: [{
+                    data: [11, 0, 1],
+                    backgroundColor: ['#10b981', '#f43f5e', '#f59e0b'],
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                cutout: '75%'
+            }
+        });
+    </script>
+</body>
+</html>

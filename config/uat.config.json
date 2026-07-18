@@ -1,0 +1,4 @@
+{
+  "environment": "uat",
+  "baseUrl": "https://uat.example.com"
+}

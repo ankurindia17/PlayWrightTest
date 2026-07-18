@@ -1,0 +1,4 @@
+{
+  "environment": "qa",
+  "baseUrl": "https://qa.example.com"
+}

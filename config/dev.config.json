@@ -1,0 +1,4 @@
+{
+  "environment": "dev",
+  "baseUrl": "https://dev.example.com"
+}
