@@ -2,6 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';
 
+// Method Description: Reads a CSV file and returns its content as an array of objects of type T.
+// Variable Description: filePath - The path to the CSV file to be read.
+
 export type CsvRow = Record<string, string>;
 
 export interface CsvReadOptions<T extends CsvRow> {

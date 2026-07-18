@@ -2,6 +2,10 @@ import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import * as path from 'path';
 
+// Method Description: Loads environment variables from a .env file into process.env.
+// Provides a centralized configuration manager to access environment-specific settings and secrets.
+// Variable Description: envFilePath - The path to the .env file in the current working directory.
+
 const envFilePath = path.resolve(process.cwd(), '.env');
 
 function loadEnvFile(): void {

@@ -1,5 +1,9 @@
 import crypto from 'crypto';
 
+// Method Description: Provides utility functions for encrypting and decrypting passwords using AES-256-GCM encryption.
+// Variable Description: secretKeyEnvName - The name of the environment variable that holds the secret key for encryption/decryption. 
+// fallbackSecret - A fallback secret key used if the environment variable is not set.
+
 const secretKeyEnvName = 'PASSWORD_SECRET_KEY';
 const fallbackSecret = 'mysecret';
 

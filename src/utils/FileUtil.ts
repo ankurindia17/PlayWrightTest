@@ -4,6 +4,9 @@ import { readCSV, type CsvReadOptions, type CsvRow } from './CsvReader';
 import { JsonReader } from './JsonReader';
 import { ExcelReader, type ExcelReadOptions } from './ExcelReader';
 
+// Method Description: Provides utility functions for file operations, including reading/writing JSON, CSV, and Excel files, as well as directory management.
+// Variable Description: filePath - The path to the file to be read or written. dirPath - The path to the directory to be managed.
+
 export class FileUtils {
   private static resolvePath(filePath: string): string {
     return path.isAbsolute(filePath) ? filePath : path.resolve(filePath);

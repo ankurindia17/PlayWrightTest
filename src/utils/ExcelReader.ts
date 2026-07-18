@@ -1,6 +1,9 @@
 import path from 'path';
 import XLSX from 'xlsx';
 
+// Method Description: Reads an Excel file and returns its content as an array of objects of type T.
+// Variable Description: filePath - The path to the Excel file to be read.
+
 export interface ExcelReadOptions<T extends Record<string, unknown>> {
   sheetName?: string;
   headerMap?: Partial<Record<string, keyof T & string>>;
